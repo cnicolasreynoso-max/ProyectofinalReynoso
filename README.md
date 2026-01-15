@@ -1,19 +1,57 @@
-# TUPRIMERAPAGINA_REYNOSO
+# ✈️ Blog de Viajes - Proyecto Final Coderhouse
 
-Proyecto Web en Django con temática "Blog de Viajes".
+Este es un proyecto web desarrollado con Python y Django que permite a una comunidad de viajeros compartir experiencias, crear blogs y comunicarse entre ellos.
 
-## Funcionalidades
+## 🚀 Funcionalidades
 
-1. **Herencia de Plantillas**: Se utiliza un `base.html` con barra de navegación verde.
-2. **Modelos**:
-   - `Destino`: Para cargar ciudades y países.
-   - `Mochilero`: Para registrar usuarios.
-   - `Posteo`: Para crear entradas de blog.
-3. **Formularios**: Se pueden insertar datos en las tres clases.
-4. **Búsqueda**: Se puede buscar en la base de datos por nombre de "Ciudad".
+* **Gestión de Usuarios:** Registro, Login, Logout y Edición de Perfil (con Avatar).
+* **Blogs (Pages):** Crear, Leer, Editar y Borrar posteos (CRUD).
+* **Texto Enriquecido:** Los blogs soportan formato (negrita, cursiva, etc.) gracias a CKEditor.
+* **Mensajería Privada:** Los usuarios pueden enviarse mensajes entre sí.
+* **Seguridad:** Vistas protegidas (solo usuarios logueados pueden editar o comentar).
 
-## Orden de pruebas
+## 🛠️ Tecnologías Utilizadas
 
-1. Ir a "Nuevo Destino" y cargar un par de ciudades.
-2. Ir a "Buscar Destino" y probar buscando una ciudad existente y una que no exista.
-3. Probar los formularios de "Registrar Mochilero" y "Nuevo Post" para verificar que guardan sin error (redireccionan al home).
+* Python 3.11+
+* Django
+* Bootstrap 5 (Estilos)
+* Pillow (Manejo de imágenes)
+* Django-CKEditor (Editor de texto)
+
+## ⚙️ Instalación y Ejecución
+
+Si deseas clonar y correr este proyecto localmente:
+
+1.  **Clonar el repositorio:**
+    ```bash
+    gh repo clone cnicolasreynoso-max/ProyectofinalReynosogit@github.com:cnicolasreynoso-max/ProyectofinalReynoso.git
+    ```
+
+2.  **Crear y activar un entorno virtual:**
+    ```bash
+    python -m venv venv
+    # En Windows:
+    .\venv\Scripts\activate
+    # En Mac/Linux:
+    source venv/bin/activate
+    ```
+
+3.  **Instalar dependencias:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Realizar migraciones:**
+    ```bash
+    python manage.py migrate
+    ```
+
+5.  **Correr el servidor:**
+    ```bash
+    python manage.py runserver
+    ```
+
+## 👤 Autor
+
+* **Nombre:** Christian Reynoso
+* **Curso:** Python  - Coderhouse
