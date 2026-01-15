@@ -1,0 +1,20 @@
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <h5 class="text-primary border-bottom pb-2">👤 Datos de Cuenta</h5>
+            {{ form.as_p }}
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <h5 class="text-success border-bottom pb-2">🌍 Perfil Público</h5>
+            {{ avatar_form.as_p }}
+        </div>
+    </div>
+
+    <div class="d-grid gap-2 mt-4">
+        <button type="submit" class="btn btn-warning btn-lg">💾 Guardar Todos los Cambios</button>
+        <a href="{% url 'Inicio' %}" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+</form>

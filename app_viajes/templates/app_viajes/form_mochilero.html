@@ -1,0 +1,12 @@
+{% extends "app_viajes/base.html" %}
+
+{% block contenidoQueCambia %}
+    <h2>Nuevo Mochilero</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table class="table table-borderless">
+            {{ mi_formulario.as_table }}
+        </table>
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+{% endblock %}

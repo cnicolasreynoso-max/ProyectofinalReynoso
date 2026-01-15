@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog de Viajes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success mb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'Inicio' %}">✈️ Blog Viajero</a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'Inicio' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'pages' %}">Pages (Blog)</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'About' %}">About</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+            
+            {% if user.is_authenticated %}
+            <li class="nav-item me-3">
+                <a class="nav-link" href="{% url 'mensaje_list' %}">
+                    📬 Mensajes
+                </a>
+            </li>
+                
+                <li class="nav-item">
+                    <a href="{% url 'ver_perfil' %}" class="text-decoration-none">
+                        {% if user.avatar.imagen %}
+                            <img src="{{ user.avatar.imagen.url }}" alt="Avatar" style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover; margin-right: 10px; border: 2px solid white;">
+                        {% else %}
+                            <span class="text-white me-2 fs-4">👤</span>
+                        {% endif %}
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ user.username }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow">
+                        <li><a class="dropdown-item fw-bold" href="{% url 'ver_perfil' %}">👤 Ver mi Perfil</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
+                        <li><a class="dropdown-item" href="{% url 'page_create' %}">✍️ Crear Nuevo Post</a></li>
+                        <li><a class="dropdown-item" href="{% url 'editar_perfil' %}">⚙️ Editar Perfil</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <form action="{% url 'logout' %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="dropdown-item text-danger">Cerrar Sesión</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light ms-2" href="{% url 'signup' %}">Sign Up</a>
+                </li>
+            {% endif %}
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="min-height: 60vh;">
+        {% if mensaje %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ mensaje }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+
+        {% block contenidoQueCambia %}
+        {% endblock %}
+    </div>
+
+    <footer class="text-center mt-5 py-4 bg-light text-secondary border-top">
+        <p class="mb-0">Proyecto Blog de Viajes - Coderhouse</p>
+        <small>© 2026 Todos los derechos reservados.</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

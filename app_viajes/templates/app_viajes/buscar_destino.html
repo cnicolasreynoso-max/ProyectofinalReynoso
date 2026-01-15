@@ -1,0 +1,9 @@
+{% extends "app_viajes/base.html" %}
+
+{% block contenidoQueCambia %}
+    <h2>Buscar Destino por Ciudad</h2>
+    <form action="{% url 'BuscarDestino' %}" method="GET" class="d-flex gap-2">
+        <input type="text" name="ciudad" class="form-control" placeholder="Escribe una ciudad (ej: Madrid)">
+        <button type="submit" class="btn btn-outline-success">Buscar</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "app_viajes/base.html" %}
+
+{% block contenidoQueCambia %}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0">
+                    {% if object %}Editar Post{% else %}Crear Nuevo Post{% endif %}
+                </h4>
+            </div>
+            <div class="card-body">
+                
+                <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="mb-3">
+        {{ form.media }}
+        
+        {{ form.as_p }}
+    </div>
+
+    </form>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'pages' %}" class="btn btn-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-success">
+                            {% if object %}Guardar Cambios{% else %}Publicar{% endif %}
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

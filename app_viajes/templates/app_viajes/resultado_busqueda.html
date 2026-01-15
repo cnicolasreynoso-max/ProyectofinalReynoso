@@ -1,0 +1,20 @@
+{% extends "app_viajes/base.html" %}
+
+{% block contenidoQueCambia %}
+    <h3>Resultados para: "{{ ciudad }}"</h3>
+    
+    {% if destinos %}
+        <ul class="list-group mt-3">
+        {% for destino in destinos %}
+            <li class="list-group-item">
+                <strong>{{ destino.ciudad }}</strong> - {{ destino.pais }} <br>
+                <small class="text-muted">{{ destino.descripcion }}</small>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-danger mt-3">No se encontraron destinos con ese nombre.</p>
+    {% endif %}
+    
+    <a href="{% url 'BuscarDestino' %}" class="btn btn-link mt-3">Volver a buscar</a>
+{% endblock %}

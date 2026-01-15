@@ -1,0 +1,12 @@
+# Archivos de sistema y entorno
+venv/
+.env
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Base de datos (¡Muy importante no subirla!)
+db.sqlite3
+
+# Archivos multimedia (Imágenes pesadas)
+media/

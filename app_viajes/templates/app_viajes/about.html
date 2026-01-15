@@ -1,0 +1,33 @@
+{% extends "app_viajes/base.html" %}
+
+{% block contenidoQueCambia %}
+
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <h1 class="display-4 fw-bold text-success">Sobre Mí</h1>
+            <p class="lead text-muted">
+                Hola, soy el creador de este Blog de Viajes.
+            </p>
+            <p>
+                Este proyecto nació como parte del curso de Python en Coderhouse. 
+                El objetivo es conectar a viajeros de todo el mundo para que compartan sus experiencias, 
+                fotos y consejos.
+            </p>
+            <p>
+                He utilizado tecnologías como:
+                <ul>
+                    <li><strong>Django</strong> para el backend.</li>
+                    <li><strong>Bootstrap</strong> para el diseño responsive.</li>
+                    <li><strong>SQLite</strong> como base de datos.</li>
+                </ul>
+            </p>
+        </div>
+        
+        <div class="col-lg-6 text-center">
+            <img src="https://via.placeholder.com/400x400?text=Foto+Perfil" alt="Foto de Perfil" class="img-fluid rounded-circle shadow-lg border border-5 border-success">
+        </div>
+    </div>
+</div>
+
+{% endblock %}
